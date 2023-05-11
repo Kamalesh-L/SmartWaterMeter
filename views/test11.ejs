@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="dbms_css.css">
+    <title>Admin Page</title>
+</head>
+
+<body
+    style="background-image: url('https://wallpaperaccess.com/full/1107877.jpg'); background-size:cover; background-repeat: no-repeat;height: 100%;">
+    <header>
+        <h1 class="overlay">ADMIN PAGE</h1>
+    </header>
+    <div class="content">
+        <br>
+        <form action="/cdata" method="get">
+            <button class="button" onclick="viewCustomers()">View All Customers</button><br>
+        </form>
+        <br>
+        <form action="/cbill" method="post">
+            <button class="button" onclick="viewBills()">Update Bills</button><br>
+        </form>
+        <br>
+        <form action="/comdata" method="post">
+            <input type="text" name="adminid" id="adminid" value="<%=adminId1%>" style="display: none;">
+            <input type="submit" class="button" value="View & Update Complaints">
+        </form>
+        <br>
+
+        <form action="/adminSignup.html">
+            <button class="button" onclick="viewComplaints()">Add New Admin</button>
+        </form>
+        <br>
+        <form action="del.html">
+            <button class="button">Delete a Customer</button>
+        </form>
+        <br>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!-- index.ejs -->
+
+<% // EJS code block %>
+
+  <% // Loop through the results and output each row %>
+    <link rel="stylesheet" type="text/css" href="styleTable.css">
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Complaint Id</th>
+          <th>customer Id</th>
+          <th>Complaint</th>
+          <th>Issue Date</th>
+          <th>Status</th>
+          <th>Finish Date</th>
+          <th>Admin Id</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i=0; i < results.length; i++) { %>
+          <% if (results[i].cstatus=="In Progress" ) { %>
+            <tr>
+              <td>
+                <%= results[i].complaintId %>
+              </td>
+              <td>
+                <%= results[i].custId %>
+              </td>
+              <td>
+                <%= results[i].complaint %>
+              </td>
+              <td>
+                <%= results[i].issueDate %>
+              </td>
+              <td>
+                <%= results[i].cstatus %>
+              </td>
+              <td>
+                <%= results[i].finishDate %>
+              </td>
+              <td>
+                <%= results[i].adminId %>
+              </td>
+              <td style="padding-top:4mm; height: 5mm;">
+                <form action="/updateStatus" method="post">
+                  <input type="text" id="adminid" name="adminid" style="display: none;" value="<%=adminId%>">
+                  <input type="text" name="complaintid" id="complaintid" style="display: none;"
+                    value="<%= results[i].complaintId%>">
+                  <input type="submit" value="Update">
+                </form>
+              </td>
+            </tr>
+            <%}%>
+              <%}%>
+                <% for (var i=0; i < results.length; i++) { %>
+                  <% if (results[i].cstatus=="Done" ) { %>
+                    <tr>
+                      <td>
+                        <%= results[i].complaintId %>
+                      </td>
+                      <td>
+                        <%= results[i].custId %>
+                      </td>
+                      <td>
+                        <%= results[i].complaint %>
+                      </td>
+                      <td>
+                        <%= results[i].issueDate %>
+                      </td>
+                      <td>
+                        <%= results[i].cstatus %>
+                      </td>
+                      <td>
+                        <%= results[i].finishDate %>
+                      </td>
+                      <td>
+                        <%= results[i].adminId %>
+                      </td>
+                    </tr>
+                    <%}%>
+                      <%}%>
+      </tbody>
+    </table>

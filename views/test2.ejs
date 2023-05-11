@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="dbms_css.css">
+    <title>Customer Page</title>
+</head>
+
+<body style="background-image: url('https://wallpaperaccess.com/full/1107877.jpg'); background-size: 100%;">
+    <header>
+        <h1 class="overlay">CUSTOMER PAGE</h1>
+        <div class="header">
+            <h3 style="padding-left: 80%;">WELCOME <%=title.cname %></h3>
+        </div>
+    </header>
+    <div class="content">
+    
+        <form action="/paybill" method="post">
+            <input class="button" id="custid" name="custid" value="<%=title.custId%>" style="display: none;">
+            <input class="button" type="submit" value="Pay Bill">
+        </form>
+        <br><br>
+        <form action="/complaint" method="post">
+            <button class="button" id="custid" name="custid" value="<%=title.custId%>">Write Complaint</button>
+        </form>
+        <br><br>
+        <form action="index.html">
+            <button class="button" id="signout" name="signout" value="signout" >Sign Out</button>
+        </form>
+        <!-- <div class="content"> -->
+
+    </div>
+</body>
+
+</html>

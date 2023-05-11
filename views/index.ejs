@@ -1,0 +1,46 @@
+<!-- index.ejs -->
+
+<% // EJS code block %>
+
+  <% // Loop through the results and output each row %>
+    <link rel="stylesheet" type="text/css" href="styleTable.css">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer Id</th>
+          <th>Customer Name</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Username</th>
+          <th>Units</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i=0; i < results.length; i++) { %>
+          <tr>
+            <td>
+              <%= results[i].custId %>
+            </td>
+            <td>
+              <%= results[i].cname %>
+            </td>
+            <td>
+              <%= results[i].caddress %>
+            </td>
+            <td>
+              <%= results[i].cphone %>
+            </td>
+            <td>
+              <%= results[i].cusername %>
+            </td>
+            <td style="padding-top:4mm; margin:0;">
+              <form action="/updateUnits" method="post">
+                <input type="text" id="custid" name="custid" style="display: none;" value="<%=results[i].custId%>">
+                <input type="text" name="units" id="units" style="padding: 0mm;">
+                <input type="submit" value="Update">
+              </form>
+            </td>
+          </tr>
+          <%}%>
+      </tbody>
+    </table>
